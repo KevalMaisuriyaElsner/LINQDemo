@@ -225,28 +225,31 @@ namespace LINQDemo
 
             // Query Syntax
 
-            var employeesByDepartment = from d in Department.GetAllDepartments()
-                                        join e in Employee.GetAllEmployees()
-                                        on d.ID equals e.DepartmentId into eGroup
-                                        select new
-                                        {
-                                            Department = d,
-                                            Employee = eGroup
-                                        };
+            //var employeesByDepartment = from d in Department.GetAllDepartments()
+            //                            join e in Employee.GetAllEmployees()
+            //                            on d.ID equals e.DepartmentId into eGroup
+            //                            select new
+            //                            {
+            //                                Department = d,
+            //                                Employee = eGroup
+            //                            };
 
-            foreach (var department in employeesByDepartment)
-            {
-                Console.WriteLine(department.Department.Name);
-                foreach (var employee in department.Employee)
-                {
-                    Console.WriteLine(" " + employee.Name);
-                }
-                Console.WriteLine();
-            }
+            //foreach (var department in employeesByDepartment)
+            //{
+            //    Console.WriteLine(department.Department.Name);
+            //    foreach (var employee in department.Employee)
+            //    {
+            //        Console.WriteLine(" " + employee.Name);
+            //    }
+            //    Console.WriteLine();
+            //}
 
             // End Query Syntax
 
             #endregion Group Join in Linq
+
+            #region Inner Join in Linq
+            #endregion Inner Join in Linq
             //Console.ReadLine();
         }
     }
