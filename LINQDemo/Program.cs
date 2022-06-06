@@ -397,14 +397,29 @@ namespace LINQDemo
 
             #region Generation Operator
 
-            IEnumerable<int> result = Enumerable.Range(1, 10).Where(x => x % 2 == 0);
+            //IEnumerable<int> result = Enumerable.Range(1, 10).Where(x => x % 2 == 0);
 
-            foreach (int i in result)
-            {
-                Console.WriteLine(i);
-            }
+            //foreach (int i in result)
+            //{
+            //    Console.WriteLine(i);
+            //}
 
             #endregion Generation Operator
+
+            #region Concat Operator
+
+            int[] number1 = { 1, 2, 3, 4 };
+            int[] number2 = { 4, 5, 6, 7 };
+
+            var result = number1.Concat(number2);
+
+            foreach(var v in result)
+            {
+                Console.WriteLine(v);
+            }
+
+
+            #endregion Concat Operator
             //Console.ReadLine();
         }
     }
