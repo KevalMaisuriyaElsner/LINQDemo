@@ -323,21 +323,58 @@ namespace LINQDemo
             //}
 
             // Example 2
-            List<Employee> list = new List<Employee>()
+            //List<Employee> list = new List<Employee>()
+            //{
+            //    new Employee { Id = 101, Name = "Mike"},
+            //    new Employee { Id = 101, Name = "Mike"},
+            //    new Employee { Id = 102, Name = "Mary"}
+            //};
+
+            //var result = list.Distinct(new EmployeeComparer());
+
+            //foreach(var v in result)
+            //{
+            //    Console.WriteLine(v.Id + "\t" + v.Name);
+            //}
+
+            #endregion Set Operator in Linq
+
+            #region Union Operator
+
+            // It combine two collection into one collection while removing the duplicate elements.
+            // Example 1
+            //int[] number1 = { 1, 2, 3, 4, 5 };
+            //int[] number2 = { 4, 5, 6, 7, 8 };
+
+            //var result = number1.Union(number2);
+
+            //foreach(var v in result)
+            //{
+            //    Console.WriteLine(v);   
+            //}
+
+            // Example 2
+            List<Employee> list1 = new List<Employee>()
             {
                 new Employee { Id = 101, Name = "Mike"},
-                new Employee { Id = 101, Name = "Mike"},
-                new Employee { Id = 102, Name = "Mary"}
+                new Employee { Id = 102, Name = "Susy"},
+                new Employee { Id = 103, Name = "Mary"}
             };
 
-            var result = list.Distinct(new EmployeeComparer());
-            
+            List<Employee> list2 = new List<Employee>()
+            {
+                new Employee { Id = 101, Name = "Mike"},
+                new Employee { Id = 104, Name = "John"}
+            };
+
+            var result = list1.Select(x => new { x.Id, x.Name}).Union(list2.Select(x => new { x.Id, x.Name}));
+
             foreach(var v in result)
             {
                 Console.WriteLine(v.Id + "\t" + v.Name);
             }
 
-            #endregion Set Operator in Linq
+            #endregion Union Operator
             //Console.ReadLine();
         }
     }
