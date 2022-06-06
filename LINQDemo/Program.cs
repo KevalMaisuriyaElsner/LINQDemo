@@ -280,22 +280,35 @@ namespace LINQDemo
 
             #region Left Outer Join
 
-            var result = from e in Employee.GetAllEmployees()
-                         join d in Department.GetAllDepartments()
-                         on e.DepartmentId equals d.ID into eGroup
-                         from d in eGroup.DefaultIfEmpty()
-                         select new
-                         {
-                             EmployeeName = e.Name,
-                             DepartmentName = d == null? "No Department" : d.Name
-                         };
+            //var result = from e in Employee.GetAllEmployees()
+            //             join d in Department.GetAllDepartments()
+            //             on e.DepartmentId equals d.ID into eGroup
+            //             from d in eGroup.DefaultIfEmpty()
+            //             select new
+            //             {
+            //                 EmployeeName = e.Name,
+            //                 DepartmentName = d == null? "No Department" : d.Name
+            //             };
 
-            foreach(var e in result)
-            {
-                Console.WriteLine(e.EmployeeName + "\t" + e.DepartmentName);
-            }
+            //foreach(var e in result)
+            //{
+            //    Console.WriteLine(e.EmployeeName + "\t" + e.DepartmentName);
+            //}
 
             #endregion Left Outer Join
+
+            #region Cross Join in Linq
+
+            var result = from d in Department.GetAllDepartments()
+                         from e in Employee.GetAllEmployees()
+                         select new { e, d };
+
+            foreach (var r in result)
+            {
+                Console.WriteLine(r.e.Name + "\t" + r.d.Name);
+            }
+
+            #endregion Cross Join in Linq
             //Console.ReadLine();
         }
     }

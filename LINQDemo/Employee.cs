@@ -36,7 +36,7 @@ namespace LINQDemo
                 new Employee { Id=7, Name="Rock", Gender="Male",Department="HR", Salary=40000, DepartmentId = 2},
                 new Employee { Id=8, Name="Pauly", Gender="Female",Department="HR", Salary=35000, DepartmentId = 1},
                 new Employee { Id=9, Name="Andy", Gender="Male",Department="IT", Salary=47000, DepartmentId = 1},
-                new Employee { Id=10, Name="Mary", Gender="Female",Department="HR", Salary=58000}
+                new Employee { Id=10, Name="Mary", Gender="Female",Department="HR", Salary=58000, DepartmentId = 2}
             };
 
         }
