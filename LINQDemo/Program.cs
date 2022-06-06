@@ -354,27 +354,46 @@ namespace LINQDemo
             //}
 
             // Example 2
-            List<Employee> list1 = new List<Employee>()
-            {
-                new Employee { Id = 101, Name = "Mike"},
-                new Employee { Id = 102, Name = "Susy"},
-                new Employee { Id = 103, Name = "Mary"}
-            };
+            //List<Employee> list1 = new List<Employee>()
+            //{
+            //    new Employee { Id = 101, Name = "Mike"},
+            //    new Employee { Id = 102, Name = "Susy"},
+            //    new Employee { Id = 103, Name = "Mary"}
+            //};
 
-            List<Employee> list2 = new List<Employee>()
-            {
-                new Employee { Id = 101, Name = "Mike"},
-                new Employee { Id = 104, Name = "John"}
-            };
+            //List<Employee> list2 = new List<Employee>()
+            //{
+            //    new Employee { Id = 101, Name = "Mike"},
+            //    new Employee { Id = 104, Name = "John"}
+            //};
 
-            var result = list1.Select(x => new { x.Id, x.Name}).Union(list2.Select(x => new { x.Id, x.Name}));
+            //var result = list1.Select(x => new { x.Id, x.Name}).Union(list2.Select(x => new { x.Id, x.Name}));
 
-            foreach(var v in result)
-            {
-                Console.WriteLine(v.Id + "\t" + v.Name);
-            }
+            //foreach(var v in result)
+            //{
+            //    Console.WriteLine(v.Id + "\t" + v.Name);
+            //}
 
             #endregion Union Operator
+
+            #region Intersect Operator & Except Operator
+
+            // Intersect Returns the common elements between 2 collection
+            int[] number1 = { 1, 2, 3, 4, 5 };
+            int[] number2 = { 4, 5, 6, 7, 8 };
+
+            // For Intersect
+            var result = number1.Intersect(number2);
+
+            // For Except
+            var result1 = number1.Except(number2);
+
+            foreach (var v in result1)
+            {
+                Console.WriteLine(v);
+            }
+
+            #endregion Intersect Operator & Except Operator
             //Console.ReadLine();
         }
     }
