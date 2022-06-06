@@ -299,16 +299,45 @@ namespace LINQDemo
 
             #region Cross Join in Linq
 
-            var result = from d in Department.GetAllDepartments()
-                         from e in Employee.GetAllEmployees()
-                         select new { e, d };
+            //var result = from d in Department.GetAllDepartments()
+            //             from e in Employee.GetAllEmployees()
+            //             select new { e, d };
 
-            foreach (var r in result)
-            {
-                Console.WriteLine(r.e.Name + "\t" + r.d.Name);
-            }
+            //foreach (var r in result)
+            //{   
+            //    Console.WriteLine(r.e.Name + "\t" + r.d.Name);
+            //}
 
             #endregion Cross Join in Linq
+
+            #region Set Operator in Linq    
+
+            // Example 1
+            //string[] countries = { "USA", "usa", "INDIA", "UK", "UK" };
+
+            //var result = countries.Distinct(StringComparer.OrdinalIgnoreCase);
+
+            //foreach(var v in result)
+            //{
+            //    Console.WriteLine(v);
+            //}
+
+            // Example 2
+            List<Employee> list = new List<Employee>()
+            {
+                new Employee { Id = 101, Name = "Mike"},
+                new Employee { Id = 101, Name = "Mike"},
+                new Employee { Id = 102, Name = "Mary"}
+            };
+
+            var result = list.Distinct(new EmployeeComparer());
+            
+            foreach(var v in result)
+            {
+                Console.WriteLine(v.Id + "\t" + v.Name);
+            }
+
+            #endregion Set Operator in Linq
             //Console.ReadLine();
         }
     }
