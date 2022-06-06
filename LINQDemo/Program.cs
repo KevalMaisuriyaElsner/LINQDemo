@@ -261,22 +261,41 @@ namespace LINQDemo
             //                                        });
 
             // Query Syntax Method
-            var result = from e in Employee.GetAllEmployees()
-                         join d in Department.GetAllDepartments()
-                         on e.DepartmentId equals d.ID
-                         select new
-                         {
-                            EmployeeName = e.Name,
-                            DepartmentName = d.Name
-                         };
+            //var result = from e in Employee.GetAllEmployees()
+            //             join d in Department.GetAllDepartments()
+            //             on e.DepartmentId equals d.ID
+            //             select new
+            //             {
+            //                EmployeeName = e.Name,
+            //                DepartmentName = d.Name
+            //             };
 
 
-            foreach (var employee in result)
-            {
-                Console.WriteLine(employee.EmployeeName + "\t" + employee.DepartmentName);
-            }
+            //foreach (var employee in result)
+            //{
+            //    Console.WriteLine(employee.EmployeeName + "\t" + employee.DepartmentName);
+            //}
 
             #endregion Inner Join in Linq
+
+            #region Left Outer Join
+
+            var result = from e in Employee.GetAllEmployees()
+                         join d in Department.GetAllDepartments()
+                         on e.DepartmentId equals d.ID into eGroup
+                         from d in eGroup.DefaultIfEmpty()
+                         select new
+                         {
+                             EmployeeName = e.Name,
+                             DepartmentName = d == null? "No Department" : d.Name
+                         };
+
+            foreach(var e in result)
+            {
+                Console.WriteLine(e.EmployeeName + "\t" + e.DepartmentName);
+            }
+
+            #endregion Left Outer Join
             //Console.ReadLine();
         }
     }
