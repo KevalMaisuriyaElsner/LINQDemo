@@ -249,6 +249,33 @@ namespace LINQDemo
             #endregion Group Join in Linq
 
             #region Inner Join in Linq
+
+            // Method Syntax Method
+            //var result = Employee.GetAllEmployees().Join(Department.GetAllDepartments(),
+            //                                        e => e.DepartmentId,
+            //                                        d => d.ID,
+            //                                        (emplloyee, department) => new
+            //                                        {
+            //                                            EmployeeName = emplloyee.Name,
+            //                                            DepartmentName = department.Name
+            //                                        });
+
+            // Query Syntax Method
+            var result = from e in Employee.GetAllEmployees()
+                         join d in Department.GetAllDepartments()
+                         on e.DepartmentId equals d.ID
+                         select new
+                         {
+                            EmployeeName = e.Name,
+                            DepartmentName = d.Name
+                         };
+
+
+            foreach (var employee in result)
+            {
+                Console.WriteLine(employee.EmployeeName + "\t" + employee.DepartmentName);
+            }
+
             #endregion Inner Join in Linq
             //Console.ReadLine();
         }
