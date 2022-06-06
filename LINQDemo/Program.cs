@@ -408,18 +408,29 @@ namespace LINQDemo
 
             #region Concat Operator
 
-            int[] number1 = { 1, 2, 3, 4 };
-            int[] number2 = { 4, 5, 6, 7 };
+            //int[] number1 = { 1, 2, 3, 4 };
+            //int[] number2 = { 4, 5, 6, 7 };
 
-            var result = number1.Concat(number2);
+            //var result = number1.Concat(number2);
 
-            foreach(var v in result)
-            {
-                Console.WriteLine(v);
-            }
+            //foreach(var v in result)
+            //{
+            //    Console.WriteLine(v);
+            //}
 
 
             #endregion Concat Operator
+
+            #region SequenceEqual
+
+            string[] countries1 = { "INDIA", "USA", "UK" };
+            string[] countries2 = { "INDIA", "USA", "UK" };
+
+            var result = countries1.SequenceEqual(countries2);
+
+            Console.WriteLine("Are Resutl = " + result);
+
+            #endregion SequenceEqual
             //Console.ReadLine();
         }
     }
