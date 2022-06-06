@@ -379,21 +379,32 @@ namespace LINQDemo
             #region Intersect Operator & Except Operator
 
             // Intersect Returns the common elements between 2 collection
-            int[] number1 = { 1, 2, 3, 4, 5 };
-            int[] number2 = { 4, 5, 6, 7, 8 };
+            //int[] number1 = { 1, 2, 3, 4, 5 };
+            //int[] number2 = { 4, 5, 6, 7, 8 };
 
             // For Intersect
-            var result = number1.Intersect(number2);
+            //var result = number1.Intersect(number2);
 
             // For Except
-            var result1 = number1.Except(number2);
+            //var result1 = number1.Except(number2);
 
-            foreach (var v in result1)
-            {
-                Console.WriteLine(v);
-            }
+            //foreach (var v in result1)
+            //{
+            //    Console.WriteLine(v);
+            //}
 
             #endregion Intersect Operator & Except Operator
+
+            #region Generation Operator
+
+            IEnumerable<int> result = Enumerable.Range(1, 10).Where(x => x % 2 == 0);
+
+            foreach (int i in result)
+            {
+                Console.WriteLine(i);
+            }
+
+            #endregion Generation Operator
             //Console.ReadLine();
         }
     }
