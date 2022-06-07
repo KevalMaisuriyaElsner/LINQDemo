@@ -423,14 +423,26 @@ namespace LINQDemo
 
             #region SequenceEqual
 
-            string[] countries1 = { "INDIA", "USA", "UK" };
-            string[] countries2 = { "INDIA", "USA", "UK" };
+            //string[] countries1 = { "INDIA", "USA", "UK" };
+            //string[] countries2 = { "INDIA", "USA", "UK" };
 
-            var result = countries1.SequenceEqual(countries2);
+            //var result = countries1.SequenceEqual(countries2);
 
-            Console.WriteLine("Are Resutl = " + result);
+            //Console.WriteLine("Are Resutl = " + result);
 
             #endregion SequenceEqual
+
+            #region LinqPad
+
+            // Convert Linq to SQl
+
+            //from t in Tbl_employees
+            //where t.EmpName.StartsWith("H")
+            //orderby t.EmpName descending
+            //select t.EmpName
+
+
+            #endregion LinqPad
             //Console.ReadLine();
         }
     }
